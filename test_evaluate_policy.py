@@ -1,7 +1,7 @@
 import unittest
 
 from go_when_1.main import GoWhen1
-from main import evaluate_policy
+from evaluate_policy import evaluate_policy
 
 
 class Policy:
@@ -9,12 +9,12 @@ class Policy:
         return state
 
 
-class TestMain(unittest.TestCase):
-    def test_main(self):
+class TestEvaluatePolicy(unittest.TestCase):
+    def test_evaluate_policy(self):
         go_when_1 = GoWhen1(100)
         policy = Policy()
         V = evaluate_policy(go_when_1, policy, 3)
-        self.assertEquals(V, {0: 1, 1: 1})
+        self.assertEqual(V, {0: 1, 1: 1})
 
 
 if __name__ == '__main__':

@@ -1,8 +1,9 @@
 def evaluate_policy(environment, policy, number_of_episodes):
+    """
+    Reference: [First-visit MC prediction, for estimating V ≈ vπ (p. 114)](http://incompleteideas.net/book/RLbook2020.pdf)
+    """
     V = dict()
     returns = dict()
-
-    gamma = 0.9
 
     for episode_number in range(number_of_episodes):
         steps = []
@@ -22,15 +23,14 @@ def evaluate_policy(environment, policy, number_of_episodes):
 
         unvisited_states = set(state for state, action, reward in steps)
 
-        G = 0
         for t in range(T - 2, 0, -1):
             state, action, reward = steps[t]
-            G = gamma * G + reward
             if state in unvisited_states:
                 if state not in returns:
                     returns[state] = []
                 returns[state].append(reward)
                 V[state] = average(returns[state])
+                unvisited_states.remove(state)
 
     return V
 
