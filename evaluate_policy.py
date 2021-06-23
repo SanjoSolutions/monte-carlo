@@ -1,6 +1,7 @@
 def evaluate_policy(environment, policy, number_of_episodes):
     """
-    Reference: [First-visit MC prediction, for estimating V ≈ vπ (p. 114)](http://incompleteideas.net/book/RLbook2020.pdf)
+    Starting point for this implementation:
+    [First-visit MC prediction, for estimating V ≈ vπ (p. 114)](http://incompleteideas.net/book/RLbook2020.pdf)
     """
     V = dict()
     returns = dict()

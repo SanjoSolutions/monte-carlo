@@ -26,7 +26,8 @@ DEFAULT_ESTIMATED_VALUE = 0
 
 def explore_policy(environment, number_of_episodes):
     """
-    Reference: [Monte Carlo ES (Exploring Starts) π ≈ π* (p. 121)](http://incompleteideas.net/book/RLbook2020.pdf)
+    Starting point for this implementation:
+    [Monte Carlo ES (Exploring Starts) π ≈ π* (p. 121)](http://incompleteideas.net/book/RLbook2020.pdf)
     """
     policy = Policy()
     Q = dict()
